@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+   <!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<section class="container"  id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;  ">
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Instructions</strong></div>
+
+<div class="panel-body">
+<p></p>
+
+<ul>
+	<li>Watch the video carefully</li>
+	<li>Give some rating and feedback by filling out the survey.</li>
+	<li>For the feedback comments specify the time where she needs to improve.</li>
+        <li>The rating and commenting fields will appear when you are finished watching the video.</li>
+</ul>
+</div>
+</div>
+<!-- End Instructions --><!-- Content Body -->
+    
+<video height="320" width="640" controls="controls" onended="videoended()">
+<source src="https:///www.dropbox.com/s/gf6mgym35l9n9jb/MF_Two_Min_Talk_SD.mp4" type="video/mp4">
+
+Your browser does not support the video tag.
+</video> 
+<section id="questions" style=" visibility: hidden">
+
+    <table border="0" cellspacing="1" >
+            <tbody>
+                <tr>
+                    
+                    <td>    
+                        <table border="0" >
+                            
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label>1. Rate the Body posture </label>
+                                        <p>1 = Very Bad, 5 = Very Good </p>
+                                        <table border="0" id="BodyRating" width="10">
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="radio" name="Q1Answer" value="1" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="2" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="3" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="4" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="5" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                            
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                         <br>
+                                        <label> Comment on when and what she needs to improve in the context of Body posture</label>
+                                      
+                                        <textarea id="BodyComment" class="form-control" cols="120" name="Q1MultiLineTextInput" rows="3"></textarea>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>2. Rate the  Tone of Voice </label>
+                                        <p>1 = Very Bad, 5 = Very Good </p>
+                                        <table border="0" id="ToneRating" width="10">
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="radio" name="Q1Answer" value="1" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="2" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="3" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="4" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="5" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                            
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <label> Comment on when and what she needs to improve in the context of Tone of Voice</label>
+                                        <textarea id="ToneComment" class="form-control" cols="120" name="Q1MultiLineTextInput" rows="3"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>3. Rate the Facial Expressions and Eye Movement </label>
+                                        <p>1 = Very Bad, 5 = Very Good </p>
+                                        <table border="0" id="FaceRating" width="10">
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="radio" name="Q1Answer" value="1" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="2" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="3" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="4" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="5" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                            
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <label> Comment on when and what she needs to improve in the context of Facial Expressions and Eye Movement</label>
+                                        <textarea id="FaceComment" class="form-control" cols="120" name="Q1MultiLineTextInput" rows="3"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>4. Rate on the Appropriate pauses </label>
+                                        <p>1 = Very Bad, 5 = Very Good </p>
+                                        <table border="0" id="PauseRating" width="10">
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="radio" name="Q1Answer" value="1" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="2" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="3" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="4" /></td>
+                                                    <td><input type="radio" name="Q1Answer" value="5" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                            
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <label> Comment on when and what she needs to improve in the context of Appropriate pauses</label>
+                                        <textarea id="PauseComment" class="form-control" cols="120" name="Q1MultiLineTextInput" rows="3"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        
+                    </td>
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+</section>
+<!-- End Content Body --></div>
+</section>
+<!-- close container -->
+
+<style type="text/css">fieldset {
+    padding: 10px;
+    background:#fbfbfb;
+    border-radius:5px;
+    margin-bottom:5px;
+    table-layout: fixed;
+    width: auto;
+    alignment-adjust: 10px;
+    
+}
+</style>
+
+<script type="text/javascript">
+    
+function videoended() { 
+    document.getElementById("questions").style.visibility = "visible";
+}
+</script>
+    <body>
+        
+    </body>
+</html>
