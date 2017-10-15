@@ -1,0 +1,188 @@
+All files to be included:
+
+"start-lissa5"
+"lissa5"; lissa5.lisp is the main Lissa code
+"lissa5-schema.lisp"				; schematic dialog steps
+"choose-doolittle-response-1.lisp"  		; rule part of original data.lisp
+"general-word-data-5.lisp" 			; generic word-level stuff from data.lisp
+"user-thanks-schema" 				; testing only
+"choose-gist-clause-trees-for-input.lisp"
+"choose-reactions-to-input.lisp"
+"choose-reaction-to-input.lisp"
+"choose-wff-extraction-trees-for-input.lisp"
+"schema-for-reactions-to-answer-plus-question.lisp"
+"schema-for-reactions-to-question+clause.lisp"
+"input.lisp"
+"output.txt"
+
+
+and a bunch of rule files named like:
+"rules-for-major-input.lisp"
+
+
+start-lissa5.lisp
+
+This file is the list of all lisp files which are used in the program. So you need to update it whenever a file is added to or removed from the working directory. Morover, if you run the code on the server you need to include: 
+(load "/p/nl/tools/ttt/src/load.lisp")
+otherwise you need to have ttt folder somewhere in the computer you are working on, and you need to include something like:
+(load "C:/inetpub/wwwroot/RocSpeakRafayet/ttt/ttt/src/load")
+which is basically loading ttt from the path it is located in. 
+
+
+********************************************************************
+lissa5-schema.lisp
+
+This file is where you actually implement the dialogue schema. So it needs to be updated for each new conversation or modification in a current dialogue. 
+
+In *lissa-schema*, you basically need to write what lissa says as "say-to" actions, then for any question of lissa there should be a reply-to and react-to afterwards. Be careful about actions numbers.
+
+I am not sure if  store-output-semantics function and its application to actions do important things now, so lets skip them for now.
+
+store-output-gist-clauses
+
+You do not need to change this small function but you need to change the mapcar body which applies it to the say-to actions. You need to write gist clause which questions that lissa makes; i.e. write a simple clear version of the questions as their gist clause. The action numbers, obviousely, should match the corresponding say-to action number.
+
+
+store-topic-keys
+The mapcar of this function is also important. Here you need to make topic key for the future work with questions. These keys will later be used to attach the user answers to the actual question which they are responding to. Make simple, clear and easy to memorize key words!
+
+ 
+Now you are done with lissa5-schema.lisp
+
+********************************************************************
+choose-gist-clause-trees-for-input
+
+
+in this function you are going to build the rule tree. The upper nodes should match the gist questions we built using "store-output-gist-clauses" in lissa5-schema.lisp. Use a few words of those questions for mathing the right one. The lower nodes are labeled with four different rule trees, which are  specific-answer, unbidden-answer, thematic-answer, and question. The names must be exactly equal to the names in the corresponding rule.lisp files.
+example: 
+*specific-answer-from-major-input* 
+*unbidden-answer-from-major-input*
+*thematic-answer-from-major-input*
+*question-from-major-input*
+
+Now you are done with choose-gist-clause-trees-for-input.lisp
+*******************************************************************
+
+choose-reactions-to-input
+
+No change is needed.
+
+*******************************************************************
+
+choose-reactions-to-input
+
+here you need to specify the pattern for the input gist-clause and attach the proper "reaction-to" rule to it. You just need to be careful to use the exact gist clause later in the rule files. Also be careful about reaction-to names.
+
+
+In reaction-to-question rule, you should match questions that the user may ask from lissa and prepare answers for them. The matching should consist with the pattern of gist questions that we will later set in the rule files.
+
+Now you are done with choose-reactions-to-input.lisp
+*******************************************************************
+choose-wff-extraction-trees-for-input
+
+nothing in it right now.
+*******************************************************************
+
+schema-for-reactions-to-answer-plus-question
+
+No change is needed.
+
+*******************************************************************
+schema-for-reactions-to-question+clause
+
+No change is needed.
+*******************************************************************
+rule files:
+
+you need to write rule trees. The important notes are
+1- the node names *...* should be consistant with the names from choose-gist-clause-trees-for-input.lisp 
+2- the gist clause for specific answer should be consistent with 
+3- the gist keys which are used here in *choose-specific...* should be consistent with the store-topic-keys in lissa5-schema.lisp 
+4- the matching rules in *choose-reaction...* should be consistent with the gist clauses 
+
+
+*******************************************************************
+For dialogue 2:
+
+;; (what city would you want to move to next ?)
+	(city-want-to-move)
+		*...-from-city-want-to-move-input*
+			(I want to move to 0)
+			(I want 0 stay here 0)
+			gist-question: (what city 0 want to move 0)
+
+;; (why is that city special for you ?)
+	(special-about-city-want-to-move)
+		from-special-about-city-input
+			(That city is special for me because 0)
+
+;; (What kind of home would you want to live in ?)
+	(home-want-to-live)
+		from-home-want-to-live-input
+			(I like to live in a home that 0)
+			gist-question:(what kind 2 home 2 want to live 0)
+
+;; (where would you live if money was not a concern ?)
+	(ideal-place-to-live)
+		from-ideal-place-to-live-input
+			(If money was not an issue I would live in 1 0)
+			gist-question:(where would you live 2 money 0)
+
+;; (what would your dream home be like ?)
+	(dream-home)
+		from-dream-home-input
+			(My dream home is a home 0) 
+			gist-question: (what 2 dream home 0)
+
+;; (what would your crazy room be like ?)
+	(crazy-room)
+		from-crazy-room-input
+			(My crazy room is a room 0)
+			gist-question:(what 2 crazy room 0)
+
+;; (where did you grow up ?)
+	(hometown)
+		from-hometown-input
+			(My hometown is 1 0)
+			gist-question: (where 2 grow up 0)
+
+;; ((what is the biggest difference between your hometown and Rochester ?)
+	(Rochester-hometown-difference)
+		from-rochester-hometown-difference-input
+			(The biggest difference between my hometown and Rochester is 0)
+
+;; (what do you miss about your hometown ?)
+	(miss-about-hometown)
+		from-miss-about-hometown-input
+			(What I missed about my hometown is 0)		
+
+;; (what do you like better in Rochester ?)
+	(like-better-in-Rochester)
+		from-like-better-in-Rochester-input
+			(What I like better in Rochester is 0)
+
+;; (do you stay in touch with any of your friends from home ?)
+	(friends-from-home)
+		from-friends-from-home-input
+			(I am not in touch with my friends from home 0)
+			(I am in touch with my friends from home 0)
+
+;; (what are your plans after you graduate ?)
+	(plans-after-graduation)
+		from-plans-after-graduation-input
+			(My plan after graduation is 0)
+			gist-question: (what 0 plans after 1 graduate 0)
+
+;; (what is your dream job ?)
+	(dream-job)
+		from-dream-job-input
+			(My dream job is 0)
+			gist-question:(what 2 dream job 0)
+
+;; (what do you think about work friends ?)
+	(work-friends)
+		from-work-friends-input
+			(I think work friends 0)
+
+
+

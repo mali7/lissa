@@ -1,0 +1,56 @@
+
+
+for all (wh_ _ you) and (wh_ yours) have a default answer
+
+it should work because we have it in *reaction-to-input* but why it doesn't?
+
+=============================
+
+- if it does not detect anything for a few second, ask "could you say it again?" (or atleast simply go to the next question)
+- could we check the file, if sth 
+
+
+"because" in "where you want to move?"
+
+where would you go -> add Europe, China, France,... 
+
+======================================================
+P2
+1382-1383
+
+=======================================
+P3 
+
+1384-1385
+
+money was not an issue -> jvb e default dad dar halike cue dasht
+
+after school -> grad school - > jvb e default dad dar halike cue dasht
+
+last question -> hichi nagoft, ye chi bege khube
+
+-===============================
+major:
+1387
+major -> default??
+tour -> not 
+free time -> movie girl , cooking
+1389
+special -> 
+money -> london, north europe, barcelone
+
+====================================
+1391
+like -> school -> default
+favorite eatary -> dinasour bbq -> dg nabayad dinasour ro beporse.
+free time -> comedies -> soale type of movies ro dg nabayad beporse 
+favorite movie -> ye chi goft vali javabe default gereft
+====================================
+
+
+
+
+
+
+
+ 

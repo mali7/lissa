@@ -1,0 +1,90 @@
+(eval-when (load eval)
+  (MAPC 'ATTACHFEAT
+  '((novel novels) 
+    (magazine magazines)
+    (religion religious bible)
+	(mystery mysteries)
+	(fiction fictions)
+	(non-fiction non-fictions)
+	(history historical)
+	(cookbook cookbooks)
+	(book-genre novel magazine health mystery sci-fi Religion Literature fantasy fiction 
+	non-fiction Philosophy romance detective humor biographies autobiography art Ethics 
+	history newspaper horror satire diaries cookbook poetry )
+	(book-genre novel magazine health mystery sci-fi religion literature fantasy fiction non-fiction philosophy)
+	))
+    
+;; (what kind of things you like to read ?)
+;;	(things-like-to-read)
+;;		from-things-like-to-read-input
+;;			(0 I like to read 0)
+;;			gist-question:(3 what 2 things you like to read 0)
+
+ (READRULES '*specific-answer-from-things-like-to-read-input*
+   '(1 (0 book-genre 0) 
+        2 ((I like to read 2 \.)  (things-like-to-read)) (0 :gist) 		
+   ))
+       
+       
+ (READRULES '*thematic-answer-from-things-like-to-read-input*
+    '())
+
+ (READRULES '*unbidden-answer-from-things-like-to-read-input*
+    '())
+		
+ (READRULES '*question-from-things-like-to-read-input*
+    '(1 (0 what 2 you 0)
+        2 (what kind of things you like to read ?) (0 :gist)
+      1 (0 how 2 you 0)
+        2 (what kind of things you like to read ?) (0 :gist)
+	  1 (0 what 4 you 2 read 0)
+        2 (what kind of things you like to read ?) (0 :gist)
+     ))
+
+(READRULES '*reaction-to-things-like-to-read-input*
+   '(1 (0 novel 0)
+       2 (You like novels too\. They\'re fun to read\.) (100 :out)
+     1 (0 magazine 0)
+       2 (Oh\, that\'s nice\. Magazines are a fun\, light read\.) (100 :out)
+     1 (0 health 0)
+       2 (That\'s nice\. It\'s good to learn new ways to stay healthy\.) (100 :out)
+     1 (0 mystery 0)
+       2 (Mystery novels are always interesting to read\.) (100 :out)
+     1 (0 sci-fi 0)
+       2 (Sci-fi is probably your favorite genre\. Though you may be biased\.) (100 :out)
+     1 (0 religion 0)
+       2 (It\'s good to find comfort in reading about religion\.) (100 :out)
+     1 (0 literature 0)
+       2 (Reading literature is a good way to engage my mind \.) (100 :out)
+     1 (0 fiction 0)
+       2 (Reading fiction is always fun \.) (100 :out)
+     1 (0 fantasy 0)
+       2 (It\'s fun to be immersed in a fantasy world\.) (100 :out)
+     1 (0 non-fiction 0)
+       2 (You like reading non-fiction too\. It\'s always good to learn something new\.) (100 :out)
+	1 (0 romance 0)
+       2 (You have read some romance novels\. But you are not a big fan of them\.) (100 :out)
+	1 (0 detective 0)
+       2 (Oh\, you love detective novels\. They realy engage your mind\.) (100 :out)
+	1 (0 humor 0)
+       2 (You like reading humor too\. They are fun to read \.) (100 :out)
+	1 (0 biographies 0)
+       2 (You like reading biographies too\. You love to know about people\'s lives\.) (100 :out)
+	1 (0 art 0)
+       2 (You haven\'t read a lot of books on art\, but that sounds cool\.) (100 :out)
+	1 (0 history 0)
+       2 (You like reading history too\. It\'s always good to learn something new\.) (100 :out)
+	1 (0 newspaper 0)
+       2 (Oh\, that\'s nice\. Newspapers are a fun\, light read\.) (100 :out)
+	1 (0 horror 0)
+       2 (Oh\, you haven\'t read a lot of horror books\, they sound scary to me \.) (100 :out)
+	1 (0 satire 0)
+       2 (You like reading satire too\. They are fun to read \.) (100 :out)
+	1 (0 diaries 0)
+       2 (You like reading diaries too\. It\'s always good to learn something new\.) (100 :out)
+	1 (0 cookbook 0)
+       2 (You like cookbooks too\. I could learn a lot of new ideas for cooking\.) (100 :out)
+	1 (0 poetry 0)
+       2 (Reading poetry is a good way to engage my mind \.) (100 :out)
+	))
+); end of eval-when

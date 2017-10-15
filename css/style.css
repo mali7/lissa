@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+background: #f2f2f2;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+/* Firefox */
+@-moz-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+/* Safari and Chrome */
+@-webkit-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+/* Internet Explorer */
+@-ms-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+/* Opera */
+@-o-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+#myLightbox div {
+clear: both;
+margin: 10px 0;
+}
+#myLightbox div p {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+#myLightbox,#delayLightbox {
+background: #fff;
+border: solid 1px #e5e5e5;
+box-shadow: 0 0 20px #111;
+padding: 40px 20px 20px;
+position: absolute;
+bottom: 10px;
+left: 0;
+width: 300px;
+overflow:auto;
+max-height: 80%;
+}
+#myLightbox span.closebutton {
+font-family: "Lucida Console", Monaco, monospace;
+font-weight: bold;
+float: right;
+font-size: 3em;
+color: #888;
+cursor: pointer;
+position: relative;
+top: -20px;
+}
+#myLightbox span.closebutton:hover {
+color: #000;
+text-shadow: 1px 1px 3px #ccc;
+}

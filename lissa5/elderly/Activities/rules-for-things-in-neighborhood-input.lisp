@@ -1,0 +1,81 @@
+(eval-when (load eval)
+  (MAPC 'ATTACHFEAT
+  '((shop shops)
+    ))
+    
+;; (what kind of things do you like to do in your neighborhood ?)
+;;	(things-in-neighborhood)
+;;		from-things-in-neighborhood-input
+;;			(0 I like to 4 in neighborhood 0)
+;;			gist-question:(3 what 4 you like 4 neighborhood 0)
+
+ (READRULES '*specific-answer-from-things-in-neighborhood-input*
+   '(1 (0 library 0) 
+        2 ((I like to go to library in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 coffee shop 0) 
+        2 ((I like to go to coffee shop in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 theater 0) 
+        2 ((I like to go to theater in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 music 0) 
+        2 ((I like to go to music activities in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 book club 0) 
+        2 ((I like to go to book club in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 sport 0) 
+        2 ((I like to do sport in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 golf 0) 
+        2 ((I like to play golf in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 water-related 0) 
+        2 ((I like to do water-related activities in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 volunteer 0) 
+        2 ((I like to do volunteering in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 exercise 0) 
+        2 ((I like to do exercise in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 dance 0) 
+        2 ((I like to go to dance in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     1 (0 friend 0) 
+        2 ((I like to be with friends in neighborhood \.)  (things-in-neighborhood)) (0 :gist) 		
+     ))
+       
+     
+ (READRULES '*thematic-answer-from-things-in-neighborhood-input*
+    '())
+
+ (READRULES '*unbidden-answer-from-things-in-neighborhood-input*
+    '())
+		
+ (READRULES '*question-from-things-in-neighborhood-input*
+    '(1 (0 what 2 you 0)
+        2 (what kind of things you like to do in your neighborhood ?) (0 :gist)
+      1 (0 how 2 you 0)
+        2 (what kind of things you like to do in your neighborhood ?) (0 :gist)
+	  1 (0 what 4 you 3 neighborhood  0)
+        2 (what kind of things you like to do in your neighborhood ?) (0 :gist)
+     ))
+
+(READRULES '*reaction-to-things-in-neighborhood-input*
+   '(1 (0 exercise 0)
+       2 (It\'s good to stay active\.) (100 :out)
+     1 (0 water-related 0)
+       2 (That sounds cool\. You can\'t go in the water for obvious reasons\, but it looks fun\.) (100 :out)
+     1 (0 theater 0)
+       2 (That\'s nice\. You like the theater too \.) (100 :out)
+     1 (0 music 0)
+       2 (That\'s great! It\'s always fun to see live music \.) (100 :out)
+     1 (0 sport 0)
+       2 (That sounds fun\. It\'s good to stay active\.) (100 :out)
+     1 (0 book 0)
+       2 (Book clubs are fun\. I like talking about books with people\.) (100 :out)
+     1 (0 library 0)
+       2 (You like going to the library\, too\. You can always find an interesting book to read\.) (100 :out)
+     1 (0 dance 0)
+       2 (Dancing is really fun! It\'s good to stay active\.) (100 :out)
+     1 (0 friends 0)
+       2 (It\'s nice to be with friends\.) (100 :out)
+     1 (0 volunteering 0)
+       2 (Volunteering is nice\. It\'s good to give back to the community\.) (100 :out)
+     1 (0 coffee 0)
+       2 (Coffee shops are nice\.) (100 :out)
+     1 (0 golf 0)
+       2 (Oh\, it must be great that you have a golf course in your neighborhood!) (100 :out)
+	))
+); end of eval-when
